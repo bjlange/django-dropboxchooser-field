@@ -1,4 +1,3 @@
-
 (function() {
 
     function dropbox_chooser(){
@@ -8,7 +7,7 @@
         Dropbox.appKey = chooser_field.getAttribute("data-app-key");
 
         options = {
-            linkType: "direct",
+            linkType: "preview",
 
             success: function(files) {
                 chooser_field.value = files[0].link;
@@ -20,7 +19,7 @@
                 chooser_field.dispatchEvent(new CustomEvent('dropboxChooserCancel'));
             }
         };
-        
+
         // add extensions only if specified
         if(chooser_field.hasAttribute("data-extensions")) {
             options['extensions'] =  chooser_field.getAttribute("data-extensions")
